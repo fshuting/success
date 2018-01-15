@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+ /*
+  []里面的通常不是解析成变量，就是解析成特殊字符
+  对于对象，首先转换成字符串，对象转换成字符串都是一样的([Object Object])，无论对象是什么
+  对于数组，转化为字符串时，把数组里面的元素用逗号链接，拼接起来组成一个串，所以还是原样
+  */
+  var a={}
+  var obj1={n:2}
+  var obj2={m:3}
+  a[obj1]=4
+  a[obj2]=5//不会新增属性
+  console.log(a[obj1]);//输出多少  5
+  console.log(a);//{'[Object Object]':5}
+  console.log(obj1.toString(),obj1.toString()===obj2.toString()); //[object Object] true
+
+
+  var arr1=[2,3]
+  var arr2=[3,4]
+  a[arr1]=6
+  a[arr2]=7
+  console.log(a[arr1],a[arr2]);                 //6 7
+  console.log(arr1.toString(),arr2.toString());//2,3 3,4
+</script>
+</body>
+</html>
